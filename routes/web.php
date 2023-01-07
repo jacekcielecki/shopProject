@@ -26,9 +26,14 @@ Route::get('/', function () {
 });
 
 Route::get('/product/{id}', function ($id) {
-    return view('product', [
-        'product' => Product::find($id)
-    ]);
+    $product  = Product::find($id);
+    if($product){
+        return view('product', [
+            'product' => Product::find($id)
+        ]);
+    } else {
+        abort('404');
+    }
 });
 
 Route::get('/cart', function () {
@@ -60,9 +65,14 @@ Route::get('/listings', function () {
 
 //Single listing
 Route::get('/listings/{id}', function($id) {
-    return view('listing', [
-        'listing' => Listing::find($id)
-    ]);
+    $listing  = Listing::find($id);
+    if($listing){
+        return view('listing', [
+            'listing' => Listing::find($id)
+        ]);
+    } else {
+        abort('404');
+    }
 });
 
 
