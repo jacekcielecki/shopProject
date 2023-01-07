@@ -35,6 +35,21 @@ Route::get('/cart', function () {
     return view('cart');
 });
 
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/edit-products', function () {
+    return view('edit-products');
+});
+
+Route::get('/edit-users', function () {
+    return view('edit-users');
+});
+
+
+
+
 //All listings
 Route::get('/listings', function () {
     return view('listings', [
