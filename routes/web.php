@@ -22,6 +22,10 @@ Route::get('/index', function () {
     return view('index');
 });
 
+Route::get('/cart', function () {
+    return view('cart');
+});
+
 //All listings
 Route::get('/listings', function () {
     return view('listings', [
