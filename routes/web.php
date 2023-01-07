@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +15,20 @@ use App\Models\Listing;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('index', [
+        'products' => Product::all()
+    ]);
 });
 
-Route::get('/index', function () {
-    return view('index');
+Route::get('/product/{id}', function ($id) {
+    return view('product', [
+        'product' => Product::find($id)
+    ]);
 });
 
 Route::get('/cart', function () {
