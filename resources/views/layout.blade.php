@@ -33,6 +33,7 @@
                                         <li><a class="dropdown-item" href="/">All Products</a></li>
                                         <li><hr class="dropdown-divider" /></li>
                                         <li><a class="dropdown-item" href="/edit-products">Edit Products</a></li>
+                                        <li><a class="dropdown-item" href="/create-products">Create Products</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown">

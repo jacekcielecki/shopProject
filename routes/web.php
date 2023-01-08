@@ -18,9 +18,14 @@ use App\Models\User;
 |
 */
 
+//Products
 Route::get('/', [ProductController::class, 'index']);
-
+Route::get('/create-products', [ProductController::class, 'create']);
+Route::get('/edit-products', [ProductController::class, 'edit']);
+//store products data
+Route::post('/products', [ProductController::class, 'store']);
 Route::get('/product/{product}', [ProductController::class, 'show']);
+
 
 Route::get('/cart', function () {
     return view('cart');
@@ -30,12 +35,8 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/edit-products', function () {
-    return view('edit-products');
-});
-
+//Users
 Route::get('/edit-users', [UserController::class, 'index']);
-
 Route::get('/create-users', [UserController::class, 'create']);
 
 
@@ -49,6 +50,9 @@ Route::get('/create-users', [UserController::class, 'create']);
 //     ]);
 // });
 
+// Route::get('/edit-products', function () {
+//     return view('edit-products');
+// });
 
 // Route::get('/', function () {
 //     return view('welcome');

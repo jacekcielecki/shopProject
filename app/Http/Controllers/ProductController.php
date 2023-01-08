@@ -20,4 +20,29 @@ class ProductController extends Controller
             'product' => $product
         ]);
     }
+
+    //Show create form
+    public function create(){
+        return view('create-products');
+    }
+
+    //Show create form
+    public function edit(){
+        return view('edit-products');
+    }
+
+    //Store products data
+    public function store(Request $request){
+        $formFields = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'discountPrice' => 'required',
+            'stars' => 'required'
+        ]);
+
+        Product::create($formFields);
+
+        return redirect('/');
+    }
 }
