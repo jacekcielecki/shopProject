@@ -25,4 +25,23 @@ class UserController extends Controller
             'users' => User::all()
         ]);
     }
+
+    //Show single user
+    public function show(User $user){
+        return view('users/show', [
+            'user' => $user
+        ]);
+    }
+
+    //Store users data
+    public function store(Request $request){
+        $formFields = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        User::create($formFields);
+        return redirect('/users');
+    }
 }

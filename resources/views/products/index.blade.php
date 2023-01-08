@@ -1,16 +1,27 @@
 @extends('layout')
 @section('content')
-@include('partials._header')
-
-<!-- Section-->
-<section class="py-5">
-    <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            @foreach ($products as $product)
-                @include('partials._card')
-            @endforeach
-        </div>
-    </div>
-</section>
+    <h1>Edit Products</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Discount price</th>
+                <th scope="col">Stars</th>
+            </tr>
+        </thead>
+        @foreach ($products as $product)
+            <tr>
+                <th scope="row">{{$product->id}}</th>
+                <td>{{$product->name}}</td>
+                <td>{{$product->description}}</td>
+                <td>{{$product->price}}</td>
+                <td>{{$product->discountPrice}}</td>
+                <td>{{$product->stars}}</td>
+            </tr>
+        @endforeach
+    </table>
 
 @endsection

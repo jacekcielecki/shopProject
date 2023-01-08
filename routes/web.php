@@ -21,12 +21,15 @@ Route::get('/products', [ProductController::class, 'index']); // show all produc
 Route::get('/products/create', [ProductController::class, 'create']); //show create products form
 Route::get('/products/edit', [ProductController::class, 'edit']); //show edit products form
 Route::post('/products', [ProductController::class, 'store']); // store new product
-Route::get('/product/{product}', [ProductController::class, 'show']); // show single product
+Route::get('/products/{product}', [ProductController::class, 'show']); // show single product
 
 //Users
 Route::get('/users', [UserController::class, 'index']); // show all users
 Route::get('/users/edit', [UserController::class, 'edit']); //show edit users form
 Route::get('/users/create', [UserController::class, 'create']); //show create users form
+Route::post('/users', [UserController::class, 'store']); // store new user
+Route::get('/users/{user}', [UserController::class, 'show']); // show single user
+
 
 Route::get('/cart', function () {
     return view('cart');

@@ -35,7 +35,9 @@ class ProductController extends Controller
 
     //Show edit product form
     public function edit(){
-        return view('products/edit');
+        return view('products/edit', [
+            'products' => Product::all()
+        ]);
     }
 
     //Store products data
