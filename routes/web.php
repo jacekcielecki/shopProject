@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
 use App\Models\Product;
@@ -16,26 +18,9 @@ use App\Models\User;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', [ProductController::class, 'index']);
 
-Route::get('/', function () {
-    return view('index', [
-        'products' => Product::all()
-    ]);
-});
-
-Route::get('/product/{id}', function ($id) {
-    $product  = Product::find($id);
-    if($product){
-        return view('product', [
-            'product' => Product::find($id)
-        ]);
-    } else {
-        abort('404');
-    }
-});
+Route::get('/product/{product}', [ProductController::class, 'show']);
 
 Route::get('/cart', function () {
     return view('cart');
@@ -49,38 +34,44 @@ Route::get('/edit-products', function () {
     return view('edit-products');
 });
 
-Route::get('/edit-users', function () {
-    return view('edit-users', [
-        'users' => User::all()
-    ]);
-});
-
-
-
-
-//All listings
-Route::get('/listings', function () {
-    return view('listings', [
-        'heading' => 'Latest Listings',
-        'listings' => Listing::all()
-    ]);
-});
-
-//Single listing
-Route::get('/listings/{id}', function($id) {
-    $listing  = Listing::find($id);
-    if($listing){
-        return view('listing', [
-            'listing' => Listing::find($id)
-        ]);
-    } else {
-        abort('404');
-    }
-});
+Route::get('/edit-users', [UserController::class, 'index']);
 
 
 
 //REFERENCE
+
+// Route::get('/edit-users', function () {
+//     return view('edit-users', [
+//         'users' => User::all()
+//     ]);
+// });
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// //All listings
+// Route::get('/listings', function () {
+//     return view('listings', [
+//         'heading' => 'Latest Listings',
+//         'listings' => Listing::all()
+//     ]);
+// });
+
+// //Single listing
+// Route::get('/listings/{id}', function($id) {
+//     $listing  = Listing::find($id);
+//     if($listing){
+//         return view('listing', [
+//             'listing' => Listing::find($id)
+//         ]);
+//     } else {
+//         abort('404');
+//     }
+// });
+
+
 
 // Route::get('/wsb', function () {
 //     return view('wsb', ['name' => 'Jacek', 'surname' => 'Cielecki']);
