@@ -7,15 +7,22 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    //Show edit user from
+    //Show all users
     public function index(){
-        return view('/edit-users', [
+        return view('/users/index', [
             'users' => User::all()
         ]);
     }
 
     //Show create user from
     public function create(){
-        return view('create-users');
+        return view('users/create');
+    }
+
+    //Show edit user from
+    public function edit(){
+        return view('/users/edit', [
+            'users' => User::all()
+        ]);
     }
 }

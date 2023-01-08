@@ -30,19 +30,19 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="/">All Products</a></li>
+                                        <li><a class="dropdown-item" href="/products">All Products</a></li>
                                         <li><hr class="dropdown-divider" /></li>
-                                        <li><a class="dropdown-item" href="/edit-products">Edit Products</a></li>
-                                        <li><a class="dropdown-item" href="/create-products">Create Products</a></li>
+                                        <li><a class="dropdown-item" href="/products/edit">Edit Products</a></li>
+                                        <li><a class="dropdown-item" href="/products/create">Create Products</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Users</a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="/">All Users</a></li>
+                                        <li><a class="dropdown-item" href="/users">All Users</a></li>
                                         <li><hr class="dropdown-divider" /></li>
-                                        <li><a class="dropdown-item" href="/edit-users">Edit Users</a></li>
-                                        <li><a class="dropdown-item" href="/create-users">Create Users</a></li>
+                                        <li><a class="dropdown-item" href="/users/edit">Edit Users</a></li>
+                                        <li><a class="dropdown-item" href="/users/create">Create Users</a></li>
 
                                     </ul>
                                 </li>

@@ -16,15 +16,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Products
-Route::get('/', [ProductController::class, 'index']);
-Route::get('/create-products', [ProductController::class, 'create']);
-Route::get('/edit-products', [ProductController::class, 'edit']);
-Route::post('/products', [ProductController::class, 'store']);
-Route::get('/product/{product}', [ProductController::class, 'show']);
+Route::get('/', [ProductController::class, 'main']); // show all products (main page)
+Route::get('/products', [ProductController::class, 'index']); // show all products
+Route::get('/products/create', [ProductController::class, 'create']); //show create products form
+Route::get('/products/edit', [ProductController::class, 'edit']); //show edit products form
+Route::post('/products', [ProductController::class, 'store']); // store new product
+Route::get('/product/{product}', [ProductController::class, 'show']); // show single product
 
 //Users
-Route::get('/edit-users', [UserController::class, 'index']);
-Route::get('/create-users', [UserController::class, 'create']);
+Route::get('/users', [UserController::class, 'index']); // show all users
+Route::get('/users/edit', [UserController::class, 'edit']); //show edit users form
+Route::get('/users/create', [UserController::class, 'create']); //show create users form
 
 Route::get('/cart', function () {
     return view('cart');
