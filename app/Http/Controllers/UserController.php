@@ -13,4 +13,9 @@ class UserController extends Controller
             'users' => User::all()
         ]);
     }
+
+    //Show create form
+    public function create(){
+        return view('create-users');
+    }
 }

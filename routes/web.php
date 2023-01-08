@@ -36,6 +36,9 @@ Route::get('/edit-products', function () {
 
 Route::get('/edit-users', [UserController::class, 'index']);
 
+Route::get('/create-users', [UserController::class, 'create']);
+
+
 
 
 //REFERENCE

@@ -41,6 +41,8 @@
                                         <li><a class="dropdown-item" href="/">All Users</a></li>
                                         <li><hr class="dropdown-divider" /></li>
                                         <li><a class="dropdown-item" href="/edit-users">Edit Users</a></li>
+                                        <li><a class="dropdown-item" href="/create-users">Create Users</a></li>
+
                                     </ul>
                                 </li>
                             </ul>
