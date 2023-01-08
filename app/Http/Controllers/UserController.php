@@ -7,14 +7,14 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    //Show all users
+    //Show edit user from
     public function index(){
         return view('/edit-users', [
             'users' => User::all()
         ]);
     }
 
-    //Show create form
+    //Show create user from
     public function create(){
         return view('create-users');
     }

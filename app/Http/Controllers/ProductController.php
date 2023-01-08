@@ -7,7 +7,7 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-    //Show all products
+    //Show all products (main page)
     public function index(){
         return view('index', [
             'products' => Product::all()
@@ -21,12 +21,12 @@ class ProductController extends Controller
         ]);
     }
 
-    //Show create form
+    //Show create product form
     public function create(){
         return view('create-products');
     }
 
-    //Show create form
+    //Show edit product form
     public function edit(){
         return view('edit-products');
     }
@@ -42,7 +42,6 @@ class ProductController extends Controller
         ]);
 
         Product::create($formFields);
-
         return redirect('/');
     }
 }
