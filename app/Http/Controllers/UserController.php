@@ -36,9 +36,9 @@ class UserController extends Controller
     //Store users data
     public function store(Request $request){
         $formFields = $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
+            'name' => 'required|max:100',
+            'email' => 'required|max:100',
+            'password' => 'required|max:100',
         ]);
 
         User::create($formFields);

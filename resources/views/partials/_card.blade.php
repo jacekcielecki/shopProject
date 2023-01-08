@@ -15,9 +15,6 @@
                 <div class="d-flex justify-content-center small text-warning mb-2">
                     @for ($i = 1; $i <= $product->stars; $i++)
                         <div class="bi-star-fill"></div>
-                        @if($i >= 5)
-                            @break
-                        @endif
                     @endfor
                 </div>
                 <!-- Product price-->
