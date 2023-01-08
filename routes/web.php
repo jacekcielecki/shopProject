@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
 use App\Models\Product;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,7 +50,9 @@ Route::get('/edit-products', function () {
 });
 
 Route::get('/edit-users', function () {
-    return view('edit-users');
+    return view('edit-users', [
+        'users' => User::all()
+    ]);
 });
 
 
