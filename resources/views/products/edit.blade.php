@@ -23,7 +23,11 @@
                 <td>{{$product->price}}</td>
                 <td>{{$product->discountPrice}}</td>
                 <td>{{$product->stars}}</td>
-                <td><img src="{{asset('images/edit-icon.png')}}" height="20px" width="20px"></td>
+                <td>
+                    <a href="/products/{{ $product->id }}/edit">
+                        <img src="{{asset('images/edit-icon.png')}}" height="20px" width="20px">
+                    </a>
+                </td>
                 <td><img src="{{asset('images/delete-icon.png')}}" height="20px" width="20px"></td>
                 <td>
                     <a href="/products/{{ $product->id }}">

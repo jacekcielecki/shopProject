@@ -28,9 +28,7 @@
         </div>
         <!-- Product actions-->
         <div class="text-center card-footer p-4 pt-0 border-top-0 bg-transparent">
-            {{-- <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Dodaj do koszyka</a></div> --}}
-
-            <a href="/product/{{ $product->id }}"><button type="button" class="btn btn-outline-primary btn-sm">View</button></a>
+            <a href="/products/{{ $product->id }}"><button type="button" class="btn btn-outline-primary btn-sm">View</button></a>
             <a href="/cart"><button type="button" class="btn btn-outline-secondary btn-sm">Add to cart</button></a>
         </div>
     </div>

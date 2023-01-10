@@ -22,6 +22,9 @@ Route::get('/products/create', [ProductController::class, 'create']); //show cre
 Route::get('/products/edit', [ProductController::class, 'edit']); //show edit products form
 Route::post('/products', [ProductController::class, 'store']); // store new product
 Route::get('/products/{product}', [ProductController::class, 'show']); // show single product
+Route::get('/products/{product}/edit', [ProductController::class, 'editsingle']); // show edit product form
+Route::put('/products/{product}', [ProductController::class, 'update']); //update product
+
 
 //Users
 Route::get('/users', [UserController::class, 'index']); // show all users
