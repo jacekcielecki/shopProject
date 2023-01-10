@@ -2,7 +2,8 @@
 @section('content')
     <h1>Edit Product</h1>
     <form method="POST" action="/products/{{$product->id}}" enctype="multipart/form-data">
-        @csrf
+        @csrf 
+        {{-- Cross site protection --}}
         @method('put')
         <label>Name: </label><input type="text" name="name" value="{{$product->name}}"/><br>
         @error('name')

@@ -24,6 +24,7 @@ Route::post('/products', [ProductController::class, 'store']); // store new prod
 Route::get('/products/{product}', [ProductController::class, 'show']); // show single product
 Route::get('/products/{product}/edit', [ProductController::class, 'editsingle']); // show edit product form
 Route::put('/products/{product}', [ProductController::class, 'update']); //update product
+Route::delete('/products/{product}', [ProductController::class, 'destroy']); //delete product
 
 
 //Users

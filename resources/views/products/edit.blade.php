@@ -28,7 +28,15 @@
                         <img src="{{asset('images/edit-icon.png')}}" height="20px" width="20px">
                     </a>
                 </td>
-                <td><img src="{{asset('images/delete-icon.png')}}" height="20px" width="20px"></td>
+                <td>
+                    <form method="POST" action="/products/{{$product->id}}">
+                        @csrf
+                        @method('DELETE')
+                        <button style="background: 0%">
+                            <img src="{{asset('images/delete-icon.png')}}" height="20px" width="20px">
+                        </button>
+                    </form>
+                </td>
                 <td>
                     <a href="/products/{{ $product->id }}">
                         <img src="{{asset('images/view-icon.png')}}" height="20px" width="20px">
@@ -37,5 +45,4 @@
             </tr>
         @endforeach
     </table>
-
 @endsection

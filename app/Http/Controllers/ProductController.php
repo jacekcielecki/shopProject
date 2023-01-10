@@ -66,22 +66,29 @@ class ProductController extends Controller
         return redirect('/');
     }
 
-        //Update products data
-        public function update(Request $request, Product $product){
-            $formFields = $request->validate([
-                'name' => 'required|max:20',
-                'description' => 'required|max:1000',
-                'price' => 'required|numeric|min:1|max:10000',
-                'discountPrice' => 'required|numeric|min:1|max:10000',
-                'stars' => 'required|numeric|min:1|max:5',
-            ]);
-    
-            if($request->hasFile('productImage')) {
-                $formFields['productImage'] = $request->file('productImage')->store('productImages', 'public');
-            }
-    
-            $product->update($formFields);
+    //Update products data
+    public function update(Request $request, Product $product){
+        $formFields = $request->validate([
+            'name' => 'required|max:20',
+            'description' => 'required|max:1000',
+            'price' => 'required|numeric|min:1|max:10000',
+            'discountPrice' => 'required|numeric|min:1|max:10000',
+            'stars' => 'required|numeric|min:1|max:5',
+        ]);
 
-            return redirect('/products/edit')->with('');
+        if($request->hasFile('productImage')) {
+            $formFields['productImage'] = $request->file('productImage')->store('productImages', 'public');
         }
+
+        $product->update($formFields);
+
+        return redirect('/products/edit');
+    }
+
+    //Delete Product
+    public function destroy(Product $product) {
+        $product->delete();
+        return redirect('/products/edit');
+    }
+
 }
