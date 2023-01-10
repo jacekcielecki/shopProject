@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
     <h1>Create Products</h1>
-    <form method="POST" action="/products">
+    <form method="POST" action="/products" enctype="multipart/form-data">
         @csrf
         <label>Name: </label><input type="text" name="name" value="{{old('name')}}"/><br>
         @error('name')
@@ -26,8 +26,12 @@
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="4">5</option>
-        </select>
+        </select><br>
         @error('stars')
+            <div style="color: red">{{$message}}</div>
+        @enderror
+        <label>Product image: </label><input type="file" name="productImage" value="{{old('productImage')}}"/><br>
+        @error('productImage')
             <div style="color: red">{{$message}}</div>
         @enderror
         <button>OK</button>

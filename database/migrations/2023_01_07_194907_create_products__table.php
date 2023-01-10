@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->integer('price');
             $table->integer('discountPrice');
             $table->integer('stars');
+            $table->string('productImage')->nullable();
             $table->timestamps();
         });
     }

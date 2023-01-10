@@ -5,7 +5,7 @@
             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
         @endif
         <!-- Product image-->
-        <img class="card-img-top" src="{{asset('images/placeholder.jpg')}}" alt="..." />
+        <img class="card-img-top" src="{{$product->productImage ? asset('storage/' . $product->productImage) : asset('images/placeholder.jpg')}}" alt="..." />
         <!-- Product details-->
         <div class="card-body p-4">
             <div class="text-center">
@@ -30,8 +30,8 @@
         <div class="text-center card-footer p-4 pt-0 border-top-0 bg-transparent">
             {{-- <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Dodaj do koszyka</a></div> --}}
 
-            <a href="/product/{{ $product->id }}"><button type="button" class="btn btn-outline-primary btn-sm">Zobacz</button></a>
-            <a href="/cart"><button type="button" class="btn btn-outline-secondary btn-sm">Do koszyka</button></a>
+            <a href="/product/{{ $product->id }}"><button type="button" class="btn btn-outline-primary btn-sm">View</button></a>
+            <a href="/cart"><button type="button" class="btn btn-outline-secondary btn-sm">Add to cart</button></a>
         </div>
     </div>
 </div>

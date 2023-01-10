@@ -45,10 +45,14 @@ class ProductController extends Controller
         $formFields = $request->validate([
             'name' => 'required|max:20',
             'description' => 'required|max:100',
-            'price' => 'required|numeric|min:5|max:10000',
-            'discountPrice' => 'required|numeric|min:5|max:10000',
-            'stars' => 'required|numeric|min:1|max:5'
+            'price' => 'required|numeric|min:1|max:10000',
+            'discountPrice' => 'required|numeric|min:1|max:10000',
+            'stars' => 'required|numeric|min:1|max:5',
         ]);
+
+        if($request->hasFile('productImage')) {
+            $formFields['productImage'] = $request->file('productImage')->store('productImages', 'public');
+        }
 
         Product::create($formFields);
         return redirect('/');
