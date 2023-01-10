@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -33,15 +34,20 @@ class UserController extends Controller
         ]);
     }
 
-    //Store users data
+    //Store user data
     public function store(Request $request){
         $formFields = $request->validate([
-            'name' => 'required|max:100',
-            'email' => 'required|max:100',
-            'password' => 'required|max:100',
+            'name' => ['required', 'max:100'],
+            'email' => ['required', 'max:100', 'email', 'unique:users'],
+            'password' => ['required', 'max:100', 'min:6'],
         ]);
 
-        User::create($formFields);
-        return redirect('/users');
+        $formFields['password'] = bcrypt($formFields['password']); //hash password
+
+        $user = User::create($formFields); //create user
+
+        auth()->login($user);
+
+        return redirect('/');
     }
 }

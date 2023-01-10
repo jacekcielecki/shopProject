@@ -69,11 +69,11 @@ class ProductController extends Controller
     //Update products data
     public function update(Request $request, Product $product){
         $formFields = $request->validate([
-            'name' => 'required|max:20',
-            'description' => 'required|max:1000',
-            'price' => 'required|numeric|min:1|max:10000',
-            'discountPrice' => 'required|numeric|min:1|max:10000',
-            'stars' => 'required|numeric|min:1|max:5',
+            'name' => ['required', 'max:20'],
+            'description' => ['required', 'max:1000'],
+            'price' => ['required', 'numeric', 'min:1', 'max:10000'],
+            'discountPrice' => ['required', 'numeric', 'min:1', 'max:10000'],
+            'stars' => ['required', 'numeric', 'min:1', 'max:5'],
         ]);
 
         if($request->hasFile('productImage')) {
