@@ -47,21 +47,36 @@
                                     </ul>
                                 </li>
                             </ul>
+                            @auth
+                            Welcome {{auth()->user()->name}} &nbsp; &nbsp; 
+                            @endauth
                             <form class="d-flex">
                                 <button class="btn btn-outline-dark" type="submit">
                                     <i class="bi-cart-fill me-1"></i>
-                                    Cart
+                                    Cart 
                                     <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                                 </button>
-                            </form>
-                            <form class="d-flex" style="padding-left: 10px">
+                            </form> &nbsp; 
+                            @auth
+                            <form class="inline" method="POST" action="/logout">
+                                @csrf
                                 <button class="btn btn-outline-dark" type="submit">
-                                    <a href="/users/create">
+                                    Logout
+                                    <i class="bi bi-door-open-fill"></i>
+                                </button>
+                            </form>
+                            @else
+                            <form class="d-flex" style="padding-left: 10px">
+                            <form action="/users/create">
+                                <button class="btn btn-outline-dark" type="submit">
+                                    {{-- <a href="/users/create"> --}}
                                     <i class="bi bi-person-circle"></i>
                                     Register
-                                </a>
+                                {{-- </a> --}}
                                 </button>
+                            </form>
 
+                            @endauth
                             </form>
                         </div>
                     </div>

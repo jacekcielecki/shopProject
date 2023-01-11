@@ -50,4 +50,14 @@ class UserController extends Controller
 
         return redirect('/');
     }
+
+    //logout
+    public function logout(Request $request){
+        auth()->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        
+        return redirect('/');
+    }
 }
