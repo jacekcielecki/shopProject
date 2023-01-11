@@ -17,8 +17,20 @@
             <th scope="row">{{$user->id}}</th>
             <td>{{$user->name}}</td>
             <td>{{$user->email}}</td>
-            <td><img src="{{asset('images/edit-icon.png')}}" height="20px" width="20px"></td>
-            <td><img src="{{asset('images/delete-icon.png')}}" height="20px" width="20px"></td>
+            <td>
+                <a href="/users/{{ $user->id }}/edit">
+                    <img src="{{asset('images/edit-icon.png')}}" height="20px" width="20px">
+                </a>
+            </td>
+            <td>
+                <form method="POST" action="/users/{{$user->id}}">
+                    @csrf
+                    @method('DELETE')
+                    <button style="background: 0%; border: 0px solid;">
+                        <img src="{{asset('images/delete-icon.png')}}" height="20px" width="20px">
+                    </button>
+                </form>
+            </td>
             <td>
                 <a href="/users/{{ $user->id }}">
                     <img src="{{asset('images/view-icon.png')}}" height="20px" width="20px">

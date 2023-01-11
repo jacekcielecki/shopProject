@@ -37,6 +37,9 @@ Route::get('/users/{user}', [UserController::class, 'show']); // show single use
 Route::post('/logout', [UserController::class, 'logout']); //logout
 Route::get('/login', [UserController::class, 'login']); //show login form
 Route::post('/users/authenticate', [UserController::class, 'authenticate']); //login user
+Route::get('/users/{user}/edit', [UserController::class, 'editsingle']); // show edit user form
+Route::put('/users/{user}', [UserController::class, 'update']); //update user
+Route::delete('/users/{user}', [UserController::class, 'destroy']); //delete user
 
 
 Route::get('/cart', function () {

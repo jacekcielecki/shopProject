@@ -81,4 +81,32 @@ class UserController extends Controller
 
         return back()->withErrors(['error' => 'Invalid email or password'])->onlyInput();
     }
+
+    //edit single user
+    public function editsingle(User $user){
+        return view('users/edit-single', [
+            'user' => $user
+        ]);
+    }
+
+    //Update user data
+    public function update(Request $request, User $user){
+        $formFields = $request->validate([
+            'name' => ['required', 'max:100'],
+            'email' => ['required', 'max:100', 'email'],
+            'password' => ['required', 'max:100', 'min:6'],
+        ]);
+
+        $formFields['password'] = bcrypt($formFields['password']); //hash password
+
+        $user->update($formFields);
+
+        return redirect('/users/edit');
+    }
+
+        //Delete user
+        public function destroy(User $user) {
+            $user->delete();
+            return redirect('/users/edit');
+        }
 }

@@ -32,7 +32,7 @@
                     <form method="POST" action="/products/{{$product->id}}">
                         @csrf
                         @method('DELETE')
-                        <button style="background: 0%">
+                        <button style="background: 0%; border: 0px solid;">
                             <img src="{{asset('images/delete-icon.png')}}" height="20px" width="20px">
                         </button>
                     </form>
