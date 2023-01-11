@@ -67,15 +67,9 @@
                             </form>
                             @else
                             <form class="d-flex" style="padding-left: 10px">
-                            <form action="/users/create">
-                                <button class="btn btn-outline-dark" type="submit">
-                                    {{-- <a href="/users/create"> --}}
-                                    <i class="bi bi-person-circle"></i>
-                                    Register
-                                {{-- </a> --}}
+                                <button class="btn btn-outline-dark" onclick="location.href='/login'" type="button">
+                                    <i class="bi bi-person-circle"></i>Login
                                 </button>
-                            </form>
-
                             @endauth
                             </form>
                         </div>

@@ -35,6 +35,9 @@ Route::get('/users/create', [UserController::class, 'create']); //show create us
 Route::post('/users', [UserController::class, 'store']); // store new user
 Route::get('/users/{user}', [UserController::class, 'show']); // show single user
 Route::post('/logout', [UserController::class, 'logout']); //logout
+Route::get('/login', [UserController::class, 'login']); //show login form
+Route::post('/users/authenticate', [UserController::class, 'authenticate']); //login user
+
 
 Route::get('/cart', function () {
     return view('cart');
