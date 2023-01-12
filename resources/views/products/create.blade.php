@@ -35,7 +35,7 @@
         @error('productImage')
             <div class="title_txt" style="color: red">{{$message}}</div>
         @enderror
-        <button class="btn">OK</button>
+        <button class="btn_1">OK</button>
     </form>
 </div>
 
@@ -77,7 +77,7 @@
     margin: 0 auto;
     padding: 0.5rem 0.5rem;
     border-radius: 0.2rem;
-    width: 94%;
+    width: 90%;
     display: block;
     border: 2px solid black;
 }
@@ -87,22 +87,22 @@
     margin: 0 auto;
     padding: 0.5rem 0.5rem;
     border-radius: 0.2rem;
-    width: 94%;
+    width: 90%;
     display: block;
 
 }
-.btn{
-    width: 94%;
+.btn_1{
+    width: 90%;
     margin: 0 auto;
     padding: 0.4rem;
     border-radius: 0.2rem;
-    border: 2px solid rgb(65, 157, 199);
-    background-color: rgb(65, 157, 199);
+    border: 2px solid #212529;
+    background-color: #212529;
     cursor: pointer;
     color: #fff;
 }
 .btn:hover{
-    background-color: rgb(41, 144, 192);
+    background-color: #212529;
 }
 
 </style>

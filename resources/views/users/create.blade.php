@@ -16,7 +16,7 @@
         @error('password')
             <div class="title_txt" style="color: red">{{$message}}</div>
         @enderror
-        <button class="btn">Create</button>
+        <button class="btn_1">Create</button>
     </form>
 </div>
 
@@ -25,7 +25,7 @@
 
 <style>
 .product_container{
-    padding: 1rem;
+    /* padding: 1rem; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,20 +72,20 @@
     width: 94%;
     display: block;
 
-}
-.btn{
-    width: 94%;
+} 
+.btn_1{
+    width: 90%;
     margin: 0 auto;
     padding: 0.4rem;
     border-radius: 0.2rem;
-    border: 2px solid rgb(65, 157, 199);
-    background-color: rgb(65, 157, 199);
+    border: 2px solid #212529;
+    background-color: #212529;
     cursor: pointer;
     color: #fff;
 }
-.btn:hover{
-    background-color: rgb(41, 144, 192);
-}
+.btn_1:hover{
+    background-color: #212529;
+} */
 
 </style>
 
