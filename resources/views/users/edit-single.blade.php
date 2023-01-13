@@ -17,6 +17,15 @@
             @error('password')
                 <div style="color: red">{{$message}}</div>
             @enderror
+        <label>Role:</label>
+            <select name="role" value="{{$user->role}}"><br>
+                <option value="user">user</option>
+                <option value="manager">manager</option>
+                <option value="admin">admin</option>
+            </select>
+            @error('role')
+                <div style="color: red">{{$message}}</div>
+            @enderror
         <button>OK</button>
     </form>
 @endsection

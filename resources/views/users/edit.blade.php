@@ -7,6 +7,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
+                <th scope="col">Role</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
                 <th scope="col">View</th>
@@ -17,6 +18,7 @@
             <th scope="row">{{$user->id}}</th>
             <td>{{$user->name}}</td>
             <td>{{$user->email}}</td>
+            <td>{{$user->role}}</td>
             <td>
                 <a href="/users/{{ $user->id }}/edit">
                     <img src="{{asset('images/edit-icon.png')}}" height="20px" width="20px">

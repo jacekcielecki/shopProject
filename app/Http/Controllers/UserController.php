@@ -99,6 +99,7 @@ class UserController extends Controller
             'name' => ['required', 'max:100'],
             'email' => ['required', 'max:100', 'email'],
             'password' => ['required', 'max:100', 'min:6'],
+            'role' => ['required', 'max:100', 'min:3'],
         ]);
 
         $formFields['password'] = bcrypt($formFields['password']); //hash password
