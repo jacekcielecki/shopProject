@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Products
+//Product
 Route::get('/', [ProductController::class, 'main']); // show all products (main page)
 Route::get('/products', [ProductController::class, 'index']); // show all products
 Route::get('/products/create', [ProductController::class, 'create']); //show create products form
@@ -28,7 +29,7 @@ Route::put('/products/{product}', [ProductController::class, 'update']); //updat
 Route::delete('/products/{product}', [ProductController::class, 'destroy']); //delete product
 
 
-//Users
+//User
 Route::get('/users', [UserController::class, 'index']); // show all users
 Route::get('/users/edit', [UserController::class, 'edit']); //show edit users form
 Route::get('/users/create', [UserController::class, 'create']); //show create users form
@@ -41,10 +42,10 @@ Route::get('/users/{user}/edit', [UserController::class, 'editsingle']); // show
 Route::put('/users/{user}', [UserController::class, 'update']); //update user
 Route::delete('/users/{user}', [UserController::class, 'destroy']); //delete user
 
-
-Route::get('/cart', function () {
-    return view('cart');
-});
+//Cart
+Route::post('/session/push', [CartController::class, 'push']); //add item to cart
+Route::post('/session/flush', [CartController::class, 'flush']); //clear cart
+Route::get('/cart', [CartController::class, 'index']); // show cart
 
 Route::get('/about', function () {
     return view('about');

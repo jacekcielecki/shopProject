@@ -55,11 +55,11 @@
                             @auth
                                 Welcome {{auth()->user()->name}} &nbsp; &nbsp; 
                             @endauth
-                            <form class="d-flex">
-                                <button class="btn btn-outline-dark" type="submit">
+                            <form class="d-flex" >
+                                <button class="btn btn-outline-dark" onclick="location.href='/cart'" type="button">
                                     <i class="bi-cart-fill me-1"></i>
                                         Cart 
-                                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                                    <span class="badge bg-dark text-white ms-1 rounded-pill">{{@count(session()->get('productId'))}}</span>
                                 </button>
                             </form> &nbsp; 
                             @auth

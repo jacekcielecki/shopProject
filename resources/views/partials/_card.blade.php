@@ -28,8 +28,13 @@
         </div>
         <!-- Product actions-->
         <div class="text-center card-footer p-4 pt-0 border-top-0 bg-transparent">
-            <a href="/products/{{ $product->id }}"><button type="button" class="btn btn-outline-primary btn-sm">View</button></a>
-            <a href="/cart"><button type="button" class="btn btn-outline-secondary btn-sm">Add to cart</button></a>
+            <form action="/session/push" method="POST">
+                @csrf
+                <a href="/products/{{ $product->id }}"><button type="button" class="btn btn-outline-primary btn-sm">View</button></a>
+                <input type="hidden" name="key" value="productId">
+                <input type="hidden" name="value" value= {{ $product->id }}>
+                <button type="submit" class="btn btn-outline-secondary btn-sm">Add to cart</button>
+            </form>
         </div>
     </div>
 </div>
