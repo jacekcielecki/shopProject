@@ -30,6 +30,7 @@ class ProductController extends Controller
 
     //edit single product
     public function editsingle(Product $product){
+        $this->authorize('isAdminOrManager');
         return view('products/edit-single', [
             'product' => $product
         ]);
@@ -37,11 +38,13 @@ class ProductController extends Controller
 
     //Show create product form
     public function create(){
+        $this->authorize('isAdminOrManager');
         return view('products/create');
     }
 
     //Show edit product form
     public function edit(){
+        $this->authorize('isAdminOrManager');
         return view('products/edit', [
             'products' => Product::all()
         ]);
@@ -49,6 +52,7 @@ class ProductController extends Controller
 
     //Store products data
     public function store(Request $request){
+        $this->authorize('isAdminOrManager');
         $formFields = $request->validate([
             'name' => 'required|max:20',
             'description' => 'required|max:1000',
@@ -68,6 +72,7 @@ class ProductController extends Controller
 
     //Update products data
     public function update(Request $request, Product $product){
+        $this->authorize('isAdminOrManager');
         $formFields = $request->validate([
             'name' => ['required', 'max:20'],
             'description' => ['required', 'max:1000'],
@@ -87,6 +92,7 @@ class ProductController extends Controller
 
     //Delete Product
     public function destroy(Product $product) {
+        $this->authorize('isAdminOrManager');
         $product->delete();
         return redirect('/products/edit');
     }

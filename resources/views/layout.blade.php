@@ -31,29 +31,34 @@
                                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><a class="dropdown-item" href="/products">All Products</a></li>
-                                        <li><hr class="dropdown-divider" /></li>
-                                        <li><a class="dropdown-item" href="/products/edit">Edit Products</a></li>
-                                        <li><a class="dropdown-item" href="/products/create">Create Products</a></li>
+                                        @can('isAdminOrManager') 
+                                            <li><hr class="dropdown-divider" />
+                                            </li><li><a class="dropdown-item" href="/products/edit">Edit Products</a></li>
+                                            <li><a class="dropdown-item" href="/products/create">Create Products</a></li>
+                                        @endcan
                                     </ul>
                                 </li>
+                                @can('isAdminOrManager')
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Users</a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><a class="dropdown-item" href="/users">All Users</a></li>
-                                        <li><hr class="dropdown-divider" /></li>
-                                        <li><a class="dropdown-item" href="/users/edit">Edit Users</a></li>
-                                        <li><a class="dropdown-item" href="/users/create">Create Users</a></li>
-
+                                        @can('isAdmin')
+                                            <li><hr class="dropdown-divider" /></li>
+                                            <li><a class="dropdown-item" href="/users/edit">Edit Users</a></li>
+                                            <li><a class="dropdown-item" href="/users/create">Create Users</a></li>
+                                        @endcan
                                     </ul>
                                 </li>
+                                @endcan
                             </ul>
                             @auth
-                            Welcome {{auth()->user()->name}} &nbsp; &nbsp; 
+                                Welcome {{auth()->user()->name}} &nbsp; &nbsp; 
                             @endauth
                             <form class="d-flex">
                                 <button class="btn btn-outline-dark" type="submit">
                                     <i class="bi-cart-fill me-1"></i>
-                                    Cart 
+                                        Cart 
                                     <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                                 </button>
                             </form> &nbsp; 
@@ -61,14 +66,14 @@
                             <form class="inline" method="POST" action="/logout">
                                 @csrf
                                 <button class="btn btn-outline-dark" type="submit">
-                                    Logout
+                                    Logout &nbsp; 
                                     <i class="bi bi-door-open-fill"></i>
                                 </button>
                             </form>
                             @else
                             <form class="d-flex" style="padding-left: 10px">
                                 <button class="btn btn-outline-dark" onclick="location.href='/login'" type="button">
-                                    <i class="bi bi-person-circle"></i>Login
+                                    <i class="bi bi-person-circle"></i> &nbsp; Login
                                 </button>
                             @endauth
                             </form>

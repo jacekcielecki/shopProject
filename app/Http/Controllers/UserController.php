@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Contracts\Validation\Rule;
 
 class UserController extends Controller
 {
     //Show all users
     public function index(){
+        $this->authorize('isAdminOrManager');
         return view('/users/index', [
             'users' => User::all()
         ]);
@@ -22,6 +22,7 @@ class UserController extends Controller
 
     //Show edit user from
     public function edit(){
+        $this->authorize('isAdmin');
         return view('/users/edit', [
             'users' => User::all()
         ]);
@@ -29,6 +30,7 @@ class UserController extends Controller
 
     //Show single user
     public function show(User $user){
+        $this->authorize('isAdmin');
         return view('users/show', [
             'user' => $user
         ]);
@@ -84,6 +86,7 @@ class UserController extends Controller
 
     //edit single user
     public function editsingle(User $user){
+        $this->authorize('isAdmin');
         return view('users/edit-single', [
             'user' => $user
         ]);
@@ -91,6 +94,7 @@ class UserController extends Controller
 
     //Update user data
     public function update(Request $request, User $user){
+        $this->authorize('isAdmin');
         $formFields = $request->validate([
             'name' => ['required', 'max:100'],
             'email' => ['required', 'max:100', 'email'],
@@ -106,6 +110,7 @@ class UserController extends Controller
 
         //Delete user
         public function destroy(User $user) {
+            $this->authorize('isAdmin');
             $user->delete();
             return redirect('/users/edit');
         }
