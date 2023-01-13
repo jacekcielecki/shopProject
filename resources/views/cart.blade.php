@@ -19,14 +19,20 @@
         </tbody>
     </table>
     <div class="d-flex" style="padding-left: 10px">
-        <button type="submit" class="btn btn-outline-secondary btn-sm">Order</button> &nbsp;
+        <form action="/orders" method="POST">
+            @csrf
+            <input type="hidden" name="user_id" value={{ $userId }}>
+            <input type="hidden" name="status" value="In progress">
+            <input type="hidden" name="products" value= {{$orderedProducts}}>
+            <button type="submit" class="btn btn-outline-secondary btn-sm">Order</button>
+        </form> &nbsp;
         <form action="/session/flush" method="POST">
             @csrf
             <button type="submit" class="btn btn-outline-secondary btn-sm">Clear Cart</button>
         </form>
     </div>
 @else
-Cart is empty add some items first
+    Cart is empty add some items first
 @endif
 
 @endsection

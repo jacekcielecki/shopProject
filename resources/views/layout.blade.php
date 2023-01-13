@@ -50,6 +50,12 @@
                                         @endcan
                                     </ul>
                                 </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Orders</a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="/orders">All Orders</a></li>
+                                    </ul>
+                                </li>
                                 @endcan
                             </ul>
                             @auth
